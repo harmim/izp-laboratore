@@ -1,2 +1,2 @@
 # izp-laboratore
-Počítačové laboratoře
+IZP - Počítačové laboratoře
