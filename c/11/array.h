@@ -47,9 +47,9 @@ int array_find_id(Array *arr, int id);
 int array_find_name(Array *arr, char *name);
 
 /**
- * Vlozeni prvku do pole na zadany index. Pokud je index obsazen, funkce posune zbytek pole.
- *  Vraci index vlozeneho prvku (idx) nebo -1, pokud se operace nezdarila.
- */
+* Vlozeni prvku do pole na zadany index. Pokud je index obsazen, funkce posune zbytek pole.
+*  Vraci index vlozeneho prvku (idx) nebo -1, pokud se operace nezdarila.
+*/
 int array_insert_item(Array *arr, Object *item, unsigned idx);
 
 /**
@@ -60,7 +60,7 @@ int array_find_min(Array *arr);
 
 /**
  * Funkce otestuje, zda je pole prazdne.
- * Pokud ano, funkce vrati 1, jinak vrati 0.
+ * Pokud ano, funkce vrati 1, jinak 0.
  */
 bool array_empty(Array* arr);
 

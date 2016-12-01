@@ -5,16 +5,29 @@
  * roven NULL, pokud se inicializace nezdarila.
  */
 Object object_ctor(int id, char *name)
-{	
+{
+	/// inicializace nove promenne pro objekt
 	Object o;
-	o.id = id;
-	o.name = malloc(strlen(name) + 1 * sizeof(char));	
-	if (o.name == NULL) {
-		fprintf(stderr, "Chyba alokace.\n");
-		return o;
-	}
-	strcpy(o.name, name);
 
+	/// ulozeni id
+	o.id = id;
+
+	/// pokud neni predane jmeno NULL
+	if (name != NULL)
+	{
+		/// alokace pameti (funkce malloc)
+		o.name = malloc((strlen(name)+1)*sizeof(char));
+
+		/// pokud alokace probehla uspesne, zkopirujeme jmeno do objektu
+		if (o.name != NULL)
+			strcpy(o.name, name);
+	}
+	else /// jinak vlozime ukazatel do objektu (v tomto pripade to bude asi NULL)
+	{
+		o.name = name;
+	}
+
+	/// vracime nove vytvoreny objekt
 	return o;
 }
 
@@ -23,6 +36,7 @@ Object object_ctor(int id, char *name)
  */
 void object_swap(Object *i1, Object *i2)
 {
+	/// vymeni data dvou objektu (je potreba pomocny objekt)
 	Object tmp = *i1;
 	*i1 = *i2;
 	*i2 = tmp;
@@ -34,13 +48,15 @@ void object_swap(Object *i1, Object *i2)
  */
 Object *item_cpy(Object *dst, Object *src)
 {
+	/// objekt dst pripravime pomoci konstruktoru
 	*dst = object_ctor(src->id, src->name);
-	
-	if (dst->name == NULL) {
-		return NULL;
-	}
 
-	return dst;
+	/// pokud se alokace povedla, vratime dst, jinak NULL
+	if (dst->name != NULL)
+		return dst;
+	else
+		return NULL;
+
 }
 
 /**
@@ -48,7 +64,8 @@ Object *item_cpy(Object *dst, Object *src)
  */
 void object_dtor(Object *o)
 {
-	free(o->name);	
+	/// uvolnime alokovanou pamet pro retezec (funkce free)
+	free(o->name);
 }
 
 

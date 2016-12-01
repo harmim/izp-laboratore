@@ -8,12 +8,11 @@
  */
 int main()
 {
-	
 	printf("STRUKTURY\n------------\n");
 	// vytvoreni objektu
 	Object o1 = object_ctor(10,"Alice");
 	Object o2 = object_ctor(20,"Petr");
-    	// vypiseme objekty
+    // vypiseme objekty
 	print_object(&o1);
 	print_object(&o2);
 
@@ -23,17 +22,17 @@ int main()
 	print_object(&o1);
 	print_object(&o2);
 
-   	printf("------------\nKopie objektu\n------------\n");
+    printf("------------\nKopie objektu\n------------\n");
 	Object o3;
-	o3 = object_ctor(0, "");
+	o3 = object_ctor(0, NULL);
 	item_cpy(&o3, &o1);
-    	print_object(&o3);
+    print_object(&o3);
 
 	// dealokace pameti
 	object_dtor(&o1);
 	object_dtor(&o2);
 	object_dtor(&o3);
-/*    //////////////////////////////////////////////////
+    //////////////////////////////////////////////////
 	printf("POLE\n------------\n");
 	// vytvoreni pole
 	Array arr = array_ctor(5);
@@ -121,6 +120,5 @@ int main()
     // uvolneni pameti
 	array_dtor(&arr);
 
-	*/
 	return 0;
 }

@@ -3,7 +3,7 @@
 # Datum: Listopad 2016
 
 CC=gcc
-FLAGS=-std=c99 -pedantic -Wall -Wextra -g
+FLAGS=-std=c99 -Werror -Wall -Wextra -g
 
 all: main.o struct.o array.o
 	$(CC) $(FLAGS) main.o struct.o array.o -o main
@@ -17,6 +17,6 @@ struct.o: struct.c struct.h
 array.o: array.c array.h
 	$(CC) $(FLAGS) -c array.c
 
-
 clean:
-	rm -f array.o test.o struct.o main.o main
+	rm -f array.o struct.o main.o main
+
