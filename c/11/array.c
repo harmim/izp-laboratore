@@ -134,8 +134,7 @@ int array_insert_item(Array *arr, Object *item, unsigned idx)
 	}
 
     /// pokud neni puvodni index volny, budeme testovat indexy az do konce pole
-    unsigned int i;
-    for (i=idx+1; i<arr->size; i++)
+    for (unsigned i = 0; i<arr->size; i++)
     {
         /// pokud je volno, vlozime
         if (arr->items[i].id == 0 && arr->items[i].name == NULL)

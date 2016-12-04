@@ -69,10 +69,10 @@ bool array_empty(Array* arr);
  */
 void array_sort_bubble(Array *arr);
 
-/**
+/*
  *  Razeni prvku v poli podle jejich identifikatoru. (select sort)
  */
- void array_sort_select(Array *arr);
+void array_sort_select(Array *arr);
 
 /**
  * Vypis vsech prvku pole.
